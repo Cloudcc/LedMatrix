@@ -1,0 +1,463 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "main.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .section .text.delay,"ax",%progbits
+  18              	 .align 2
+  19              	 .global delay
+  20              	 .code 16
+  21              	 .thumb_func
+  23              	delay:
+  24              	.LFB197:
+  25              	 .file 1 "../main.c"
+   1:../main.c     **** /*
+   2:../main.c     ****  * main.c
+   3:../main.c     ****  *
+   4:../main.c     ****  *  Created on: 2016 Sep 24 02:01:27
+   5:../main.c     ****  *  Author: Johnny
+   6:../main.c     ****  */
+   7:../main.c     **** 
+   8:../main.c     **** #include <DAVE.h>                 //Declarations from DAVE Code Generation (includes SFR declaratio
+   9:../main.c     **** 
+  10:../main.c     **** /**
+  11:../main.c     **** 
+  12:../main.c     ****  * @brief main() - Application entry point
+  13:../main.c     ****  *
+  14:../main.c     ****  * <b>Details of function</b><br>
+  15:../main.c     ****  * This routine is the application entry point. It is invoked by the device startup code. It is res
+  16:../main.c     ****  * invoking the APP initialization dispatcher routine - DAVE_Init() and hosting the place-holder fo
+  17:../main.c     ****  * code.
+  18:../main.c     ****  */
+  19:../main.c     **** 
+  20:../main.c     **** void color(uint16_t red, uint16_t green, uint16_t blue);
+  21:../main.c     **** 
+  22:../main.c     **** void delay(uint32_t time) {
+  26              	 .loc 1 22 0
+  27              	 .cfi_startproc
+  28 0000 80B5     	 push {r7,lr}
+  29              	.LCFI0:
+  30              	 .cfi_def_cfa_offset 8
+  31              	 .cfi_offset 7,-8
+  32              	 .cfi_offset 14,-4
+  33 0002 84B0     	 sub sp,sp,#16
+  34              	.LCFI1:
+  35              	 .cfi_def_cfa_offset 24
+  36 0004 00AF     	 add r7,sp,#0
+  37              	.LCFI2:
+  38              	 .cfi_def_cfa_register 7
+  39 0006 7860     	 str r0,[r7,#4]
+  40              	.LBB2:
+  23:../main.c     **** 	for (uint8_t i = 0; i < time; i++)
+  41              	 .loc 1 23 0
+  42 0008 0F23     	 mov r3,#15
+  43 000a FB18     	 add r3,r7,r3
+  44 000c 0022     	 mov r2,#0
+  45 000e 1A70     	 strb r2,[r3]
+  46 0010 06E0     	 b .L2
+  47              	.L3:
+  48              	 .loc 1 23 0 is_stmt 0 discriminator 3
+  49 0012 0F23     	 mov r3,#15
+  50 0014 FB18     	 add r3,r7,r3
+  51 0016 1A78     	 ldrb r2,[r3]
+  52 0018 0F23     	 mov r3,#15
+  53 001a FB18     	 add r3,r7,r3
+  54 001c 0132     	 add r2,r2,#1
+  55 001e 1A70     	 strb r2,[r3]
+  56              	.L2:
+  57              	 .loc 1 23 0 discriminator 1
+  58 0020 0F23     	 mov r3,#15
+  59 0022 FB18     	 add r3,r7,r3
+  60 0024 1A78     	 ldrb r2,[r3]
+  61 0026 7B68     	 ldr r3,[r7,#4]
+  62 0028 9A42     	 cmp r2,r3
+  63 002a F2D3     	 bcc .L3
+  64              	.LBE2:
+  24:../main.c     **** 		;
+  25:../main.c     **** }
+  65              	 .loc 1 25 0 is_stmt 1
+  66 002c BD46     	 mov sp,r7
+  67 002e 04B0     	 add sp,sp,#16
+  68              	 
+  69 0030 80BD     	 pop {r7,pc}
+  70              	 .cfi_endproc
+  71              	.LFE197:
+  73 0032 C046     	 .section .rodata
+  74              	 .align 2
+  75              	.LC0:
+  76 0000 52756E6E 	 .ascii "Running...\000"
+  76      696E672E 
+  76      2E2E00
+  77 000b 00       	 .section .text.main,"ax",%progbits
+  78              	 .align 2
+  79              	 .global main
+  80              	 .code 16
+  81              	 .thumb_func
+  83              	main:
+  84              	.LFB198:
+  26:../main.c     **** 
+  27:../main.c     **** int main(void) {
+  85              	 .loc 1 27 0
+  86              	 .cfi_startproc
+  87 0000 90B5     	 push {r4,r7,lr}
+  88              	.LCFI3:
+  89              	 .cfi_def_cfa_offset 12
+  90              	 .cfi_offset 4,-12
+  91              	 .cfi_offset 7,-8
+  92              	 .cfi_offset 14,-4
+  93 0002 87B0     	 sub sp,sp,#28
+  94              	.LCFI4:
+  95              	 .cfi_def_cfa_offset 40
+  96 0004 00AF     	 add r7,sp,#0
+  97              	.LCFI5:
+  98              	 .cfi_def_cfa_register 7
+  28:../main.c     **** 	DAVE_STATUS_t status;
+  29:../main.c     **** 	UART_STATUS_t init_status;
+  30:../main.c     **** 
+  31:../main.c     **** 	uint8_t col[3];
+  32:../main.c     **** 	uint8_t startMsg[] = "Running...";
+  99              	 .loc 1 32 0
+ 100 0006 3B1D     	 add r3,r7,#4
+ 101 0008 484A     	 ldr r2,.L16
+ 102 000a 03CA     	 ldmia r2!,{r0,r1}
+ 103 000c 03C3     	 stmia r3!,{r0,r1}
+ 104 000e 1188     	 ldrh r1,[r2]
+ 105 0010 1980     	 strh r1,[r3]
+ 106 0012 9278     	 ldrb r2,[r2,#2]
+ 107 0014 9A70     	 strb r2,[r3,#2]
+  33:../main.c     **** 
+  34:../main.c     **** 	status = DAVE_Init(); /* Initialization of DAVE APPs  */
+ 108              	 .loc 1 34 0
+ 109 0016 1723     	 mov r3,#23
+ 110 0018 FC18     	 add r4,r7,r3
+ 111 001a FFF7FEFF 	 bl DAVE_Init
+ 112 001e 031C     	 mov r3,r0
+ 113 0020 2370     	 strb r3,[r4]
+  35:../main.c     **** 
+  36:../main.c     **** 	if (status != DAVE_STATUS_SUCCESS) {
+ 114              	 .loc 1 36 0
+ 115 0022 1723     	 mov r3,#23
+ 116 0024 FB18     	 add r3,r7,r3
+ 117 0026 1B78     	 ldrb r3,[r3]
+ 118 0028 002B     	 cmp r3,#0
+ 119 002a 00D0     	 beq .L5
+ 120              	.L6:
+  37:../main.c     **** 		/* Placeholder for error handler code. The while loop below can be replaced with an user error ha
+  38:../main.c     **** 		XMC_DEBUG("DAVE APPs initialization failed\n");
+  39:../main.c     **** 
+  40:../main.c     **** 		while (1U) {
+  41:../main.c     **** 
+  42:../main.c     **** 		}
+ 121              	 .loc 1 42 0 discriminator 1
+ 122 002c FEE7     	 b .L6
+ 123              	.L5:
+  43:../main.c     **** 	}
+  44:../main.c     **** 
+  45:../main.c     **** 	PWM_SetDutyCycle(&PWM_2, 0);		// Red
+ 124              	 .loc 1 45 0
+ 125 002e 404B     	 ldr r3,.L16+4
+ 126 0030 181C     	 mov r0,r3
+ 127 0032 0021     	 mov r1,#0
+ 128 0034 FFF7FEFF 	 bl PWM_SetDutyCycle
+  46:../main.c     **** 	PWM_SetDutyCycle(&PWM_1, 0);		// Green
+ 129              	 .loc 1 46 0
+ 130 0038 3E4B     	 ldr r3,.L16+8
+ 131 003a 181C     	 mov r0,r3
+ 132 003c 0021     	 mov r1,#0
+ 133 003e FFF7FEFF 	 bl PWM_SetDutyCycle
+  47:../main.c     **** 	PWM_SetDutyCycle(&PWM_0, 0);		// Blue
+ 134              	 .loc 1 47 0
+ 135 0042 3D4B     	 ldr r3,.L16+12
+ 136 0044 181C     	 mov r0,r3
+ 137 0046 0021     	 mov r1,#0
+ 138 0048 FFF7FEFF 	 bl PWM_SetDutyCycle
+  48:../main.c     **** 
+  49:../main.c     **** 	init_status = (UART_STATUS_t) UART_Init(&UART_0);
+ 139              	 .loc 1 49 0
+ 140 004c 1623     	 mov r3,#22
+ 141 004e FC18     	 add r4,r7,r3
+ 142 0050 3A4B     	 ldr r3,.L16+16
+ 143 0052 181C     	 mov r0,r3
+ 144 0054 FFF7FEFF 	 bl UART_Init
+ 145 0058 031C     	 mov r3,r0
+ 146 005a 2370     	 strb r3,[r4]
+  50:../main.c     **** 	if (init_status == UART_STATUS_SUCCESS) {
+ 147              	 .loc 1 50 0
+ 148 005c 1623     	 mov r3,#22
+ 149 005e FB18     	 add r3,r7,r3
+ 150 0060 1B78     	 ldrb r3,[r3]
+ 151 0062 002B     	 cmp r3,#0
+ 152 0064 60D1     	 bne .L7
+  51:../main.c     **** 		UART_Transmit(&UART_0, startMsg, sizeof(startMsg) - 1);
+ 153              	 .loc 1 51 0
+ 154 0066 354A     	 ldr r2,.L16+16
+ 155 0068 3B1D     	 add r3,r7,#4
+ 156 006a 101C     	 mov r0,r2
+ 157 006c 191C     	 mov r1,r3
+ 158 006e 0A22     	 mov r2,#10
+ 159 0070 FFF7FEFF 	 bl UART_Transmit
+ 160              	.L15:
+  52:../main.c     **** 		while (1) {
+  53:../main.c     **** 			if (UART_Receive(&UART_0, col, 1) == UART_STATUS_SUCCESS) {
+ 161              	 .loc 1 53 0
+ 162 0074 314A     	 ldr r2,.L16+16
+ 163 0076 1023     	 mov r3,#16
+ 164 0078 FB18     	 add r3,r7,r3
+ 165 007a 101C     	 mov r0,r2
+ 166 007c 191C     	 mov r1,r3
+ 167 007e 0122     	 mov r2,#1
+ 168 0080 FFF7FEFF 	 bl UART_Receive
+ 169 0084 031E     	 sub r3,r0,#0
+ 170 0086 4ED1     	 bne .L8
+  54:../main.c     **** 				if(col[0] == 1) color(10000, 0, 0);
+ 171              	 .loc 1 54 0
+ 172 0088 1023     	 mov r3,#16
+ 173 008a FB18     	 add r3,r7,r3
+ 174 008c 1B78     	 ldrb r3,[r3]
+ 175 008e 012B     	 cmp r3,#1
+ 176 0090 05D1     	 bne .L9
+ 177              	 .loc 1 54 0 is_stmt 0 discriminator 1
+ 178 0092 2B4B     	 ldr r3,.L16+20
+ 179 0094 181C     	 mov r0,r3
+ 180 0096 0021     	 mov r1,#0
+ 181 0098 0022     	 mov r2,#0
+ 182 009a FFF7FEFF 	 bl color
+ 183              	.L9:
+  55:../main.c     **** 				if(col[0] == 2) color(0, 10000, 0);
+ 184              	 .loc 1 55 0 is_stmt 1
+ 185 009e 1023     	 mov r3,#16
+ 186 00a0 FB18     	 add r3,r7,r3
+ 187 00a2 1B78     	 ldrb r3,[r3]
+ 188 00a4 022B     	 cmp r3,#2
+ 189 00a6 05D1     	 bne .L10
+ 190              	 .loc 1 55 0 is_stmt 0 discriminator 1
+ 191 00a8 254B     	 ldr r3,.L16+20
+ 192 00aa 0020     	 mov r0,#0
+ 193 00ac 191C     	 mov r1,r3
+ 194 00ae 0022     	 mov r2,#0
+ 195 00b0 FFF7FEFF 	 bl color
+ 196              	.L10:
+  56:../main.c     **** 				if(col[0] == 3) color(0, 0, 10000);
+ 197              	 .loc 1 56 0 is_stmt 1
+ 198 00b4 1023     	 mov r3,#16
+ 199 00b6 FB18     	 add r3,r7,r3
+ 200 00b8 1B78     	 ldrb r3,[r3]
+ 201 00ba 032B     	 cmp r3,#3
+ 202 00bc 05D1     	 bne .L11
+ 203              	 .loc 1 56 0 is_stmt 0 discriminator 1
+ 204 00be 204B     	 ldr r3,.L16+20
+ 205 00c0 0020     	 mov r0,#0
+ 206 00c2 0021     	 mov r1,#0
+ 207 00c4 1A1C     	 mov r2,r3
+ 208 00c6 FFF7FEFF 	 bl color
+ 209              	.L11:
+  57:../main.c     **** 				if(col[0] == 4) color(10000, 0, 10000);
+ 210              	 .loc 1 57 0 is_stmt 1
+ 211 00ca 1023     	 mov r3,#16
+ 212 00cc FB18     	 add r3,r7,r3
+ 213 00ce 1B78     	 ldrb r3,[r3]
+ 214 00d0 042B     	 cmp r3,#4
+ 215 00d2 06D1     	 bne .L12
+ 216              	 .loc 1 57 0 is_stmt 0 discriminator 1
+ 217 00d4 1A4A     	 ldr r2,.L16+20
+ 218 00d6 1A4B     	 ldr r3,.L16+20
+ 219 00d8 101C     	 mov r0,r2
+ 220 00da 0021     	 mov r1,#0
+ 221 00dc 1A1C     	 mov r2,r3
+ 222 00de FFF7FEFF 	 bl color
+ 223              	.L12:
+  58:../main.c     **** 				if(col[0] == 5) color(0, 10000, 10000);
+ 224              	 .loc 1 58 0 is_stmt 1
+ 225 00e2 1023     	 mov r3,#16
+ 226 00e4 FB18     	 add r3,r7,r3
+ 227 00e6 1B78     	 ldrb r3,[r3]
+ 228 00e8 052B     	 cmp r3,#5
+ 229 00ea 06D1     	 bne .L13
+ 230              	 .loc 1 58 0 is_stmt 0 discriminator 1
+ 231 00ec 144A     	 ldr r2,.L16+20
+ 232 00ee 144B     	 ldr r3,.L16+20
+ 233 00f0 0020     	 mov r0,#0
+ 234 00f2 111C     	 mov r1,r2
+ 235 00f4 1A1C     	 mov r2,r3
+ 236 00f6 FFF7FEFF 	 bl color
+ 237              	.L13:
+  59:../main.c     **** 				if(col[0] == 6) color(10000, 10000, 0);
+ 238              	 .loc 1 59 0 is_stmt 1
+ 239 00fa 1023     	 mov r3,#16
+ 240 00fc FB18     	 add r3,r7,r3
+ 241 00fe 1B78     	 ldrb r3,[r3]
+ 242 0100 062B     	 cmp r3,#6
+ 243 0102 06D1     	 bne .L14
+ 244              	 .loc 1 59 0 is_stmt 0 discriminator 1
+ 245 0104 0E4A     	 ldr r2,.L16+20
+ 246 0106 0E4B     	 ldr r3,.L16+20
+ 247 0108 101C     	 mov r0,r2
+ 248 010a 191C     	 mov r1,r3
+ 249 010c 0022     	 mov r2,#0
+ 250 010e FFF7FEFF 	 bl color
+ 251              	.L14:
+  60:../main.c     **** 				if(col[0] == 7) color(0, 0, 0);
+ 252              	 .loc 1 60 0 is_stmt 1
+ 253 0112 1023     	 mov r3,#16
+ 254 0114 FB18     	 add r3,r7,r3
+ 255 0116 1B78     	 ldrb r3,[r3]
+ 256 0118 072B     	 cmp r3,#7
+ 257 011a 04D1     	 bne .L8
+ 258              	 .loc 1 60 0 is_stmt 0 discriminator 1
+ 259 011c 0020     	 mov r0,#0
+ 260 011e 0021     	 mov r1,#0
+ 261 0120 0022     	 mov r2,#0
+ 262 0122 FFF7FEFF 	 bl color
+ 263              	.L8:
+  61:../main.c     **** 			}
+  62:../main.c     **** 		}
+ 264              	 .loc 1 62 0 is_stmt 1
+ 265 0126 A5E7     	 b .L15
+ 266              	.L7:
+  63:../main.c     **** 
+  64:../main.c     **** 	} else {
+  65:../main.c     **** 		XMC_DEBUG("APPLICATION FAILED!!!");
+  66:../main.c     **** 		while (1U) {
+  67:../main.c     **** 		}
+ 267              	 .loc 1 67 0 discriminator 2
+ 268 0128 FEE7     	 b .L7
+ 269              	.L17:
+ 270 012a C046     	 .align 2
+ 271              	.L16:
+ 272 012c 00000000 	 .word .LC0
+ 273 0130 00000000 	 .word PWM_2
+ 274 0134 00000000 	 .word PWM_1
+ 275 0138 00000000 	 .word PWM_0
+ 276 013c 00000000 	 .word UART_0
+ 277 0140 10270000 	 .word 10000
+ 278              	 .cfi_endproc
+ 279              	.LFE198:
+ 281              	 .section .text.color,"ax",%progbits
+ 282              	 .align 2
+ 283              	 .global color
+ 284              	 .code 16
+ 285              	 .thumb_func
+ 287              	color:
+ 288              	.LFB199:
+  68:../main.c     **** 	}
+  69:../main.c     **** 	return 1U;
+  70:../main.c     **** 
+  71:../main.c     **** }
+  72:../main.c     **** 
+  73:../main.c     **** void color(uint16_t red, uint16_t green, uint16_t blue) {
+ 289              	 .loc 1 73 0
+ 290              	 .cfi_startproc
+ 291 0000 90B5     	 push {r4,r7,lr}
+ 292              	.LCFI6:
+ 293              	 .cfi_def_cfa_offset 12
+ 294              	 .cfi_offset 4,-12
+ 295              	 .cfi_offset 7,-8
+ 296              	 .cfi_offset 14,-4
+ 297 0002 83B0     	 sub sp,sp,#12
+ 298              	.LCFI7:
+ 299              	 .cfi_def_cfa_offset 24
+ 300 0004 00AF     	 add r7,sp,#0
+ 301              	.LCFI8:
+ 302              	 .cfi_def_cfa_register 7
+ 303 0006 041C     	 mov r4,r0
+ 304 0008 081C     	 mov r0,r1
+ 305 000a 111C     	 mov r1,r2
+ 306 000c BB1D     	 add r3,r7,#6
+ 307 000e 221C     	 add r2,r4,#0
+ 308 0010 1A80     	 strh r2,[r3]
+ 309 0012 3B1D     	 add r3,r7,#4
+ 310 0014 021C     	 add r2,r0,#0
+ 311 0016 1A80     	 strh r2,[r3]
+ 312 0018 BB1C     	 add r3,r7,#2
+ 313 001a 0A1C     	 add r2,r1,#0
+ 314 001c 1A80     	 strh r2,[r3]
+  74:../main.c     **** 	PWM_SetDutyCycle(&PWM_2, red);
+ 315              	 .loc 1 74 0
+ 316 001e BB1D     	 add r3,r7,#6
+ 317 0020 1B88     	 ldrh r3,[r3]
+ 318 0022 0B4A     	 ldr r2,.L19
+ 319 0024 101C     	 mov r0,r2
+ 320 0026 191C     	 mov r1,r3
+ 321 0028 FFF7FEFF 	 bl PWM_SetDutyCycle
+  75:../main.c     **** 	PWM_SetDutyCycle(&PWM_1, green);
+ 322              	 .loc 1 75 0
+ 323 002c 3B1D     	 add r3,r7,#4
+ 324 002e 1B88     	 ldrh r3,[r3]
+ 325 0030 084A     	 ldr r2,.L19+4
+ 326 0032 101C     	 mov r0,r2
+ 327 0034 191C     	 mov r1,r3
+ 328 0036 FFF7FEFF 	 bl PWM_SetDutyCycle
+  76:../main.c     **** 	PWM_SetDutyCycle(&PWM_0, blue);
+ 329              	 .loc 1 76 0
+ 330 003a BB1C     	 add r3,r7,#2
+ 331 003c 1B88     	 ldrh r3,[r3]
+ 332 003e 064A     	 ldr r2,.L19+8
+ 333 0040 101C     	 mov r0,r2
+ 334 0042 191C     	 mov r1,r3
+ 335 0044 FFF7FEFF 	 bl PWM_SetDutyCycle
+  77:../main.c     **** }
+ 336              	 .loc 1 77 0
+ 337 0048 BD46     	 mov sp,r7
+ 338 004a 03B0     	 add sp,sp,#12
+ 339              	 
+ 340 004c 90BD     	 pop {r4,r7,pc}
+ 341              	.L20:
+ 342 004e C046     	 .align 2
+ 343              	.L19:
+ 344 0050 00000000 	 .word PWM_2
+ 345 0054 00000000 	 .word PWM_1
+ 346 0058 00000000 	 .word PWM_0
+ 347              	 .cfi_endproc
+ 348              	.LFE199:
+ 350              	 .text
+ 351              	.Letext0:
+ 352              	 .file 2 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 353              	 .file 3 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 354              	 .file 4 "C:/Workspaces/DAVE4/RGB_led/Libraries/CMSIS/Infineon/XMC1100_series/Include/XMC1100.h"
+ 355              	 .file 5 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc1_scu.h"
+ 356              	 .file 6 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc_ccu4.h"
+ 357              	 .file 7 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 358              	 .file 8 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc_gpio.h"
+ 359              	 .file 9 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc1_gpio.h"
+ 360              	 .file 10 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/PWM/pwm.h"
+ 361              	 .file 11 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc_usic.h"
+ 362              	 .file 12 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc_uart.h"
+ 363              	 .file 13 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/UART/uart.h"
+ 364              	 .file 14 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/DAVE.h"
+ 365              	 .file 15 "C:/Workspaces/DAVE4/RGB_led/Libraries/CMSIS/Infineon/XMC1100_series/Include/system_XMC1100.h"
+ 366              	 .file 16 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/PWM/PWM_Extern.h"
+ 367              	 .file 17 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/UART/uart_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+    {standard input}:18     .text.delay:00000000 $t
+    {standard input}:23     .text.delay:00000000 delay
+    {standard input}:74     .rodata:00000000 $d
+    {standard input}:78     .text.main:00000000 $t
+    {standard input}:83     .text.main:00000000 main
+    {standard input}:287    .text.color:00000000 color
+    {standard input}:272    .text.main:0000012c $d
+    {standard input}:282    .text.color:00000000 $t
+    {standard input}:344    .text.color:00000050 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+DAVE_Init
+PWM_SetDutyCycle
+UART_Init
+UART_Transmit
+UART_Receive
+PWM_2
+PWM_1
+PWM_0
+UART_0
