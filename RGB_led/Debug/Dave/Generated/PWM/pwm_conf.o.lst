@@ -1,0 +1,185 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "pwm_conf.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .global PWM_0_compare_config
+  18              	 .section .rodata.PWM_0_compare_config,"a",%progbits
+  19              	 .align 2
+  22              	PWM_0_compare_config:
+  23 0000 00       	 .byte 0
+  24 0001 00       	 .byte 0
+  25 0002 00       	 .byte 0
+  26 0003 00       	 .byte 0
+  27 0004 04       	 .byte 4
+  28 0005 00       	 .byte 0
+  29 0006 0000     	 .space 2
+  30              	 .global PWM_0_gpio_out_config
+  31              	 .section .rodata.PWM_0_gpio_out_config,"a",%progbits
+  32              	 .align 2
+  35              	PWM_0_gpio_out_config:
+  36 0000 90       	 .byte -112
+  37 0001 00       	 .byte 0
+  38 0002 0000     	 .space 2
+  39 0004 00000100 	 .word 65536
+  40              	 .global PWM_0
+  41              	 .section .data.PWM_0,"aw",%progbits
+  42              	 .align 2
+  45              	PWM_0:
+  46 0000 00000000 	 .word GLOBAL_CCU4_0
+  47 0004 00000448 	 .word 1208221696
+  48 0008 00030448 	 .word 1208222464
+  49 000c 00000000 	 .word PWM_0_compare_config
+  50 0010 00020440 	 .word 1074004480
+  51 0014 00000000 	 .word PWM_0_gpio_out_config
+  52 0018 409C0000 	 .word 40000
+  53 001c 3F9C0000 	 .word 39999
+  54 0020 00000000 	 .word 0
+  55 0024 00050000 	 .word 1280
+  56 0028 00       	 .byte 0
+  57 0029 02       	 .byte 2
+  58 002a 00       	 .byte 0
+  59 002b 00       	 .byte 0
+  60 002c 0A       	 .byte 10
+  61 002d 00       	 .byte 0
+  62 002e 02       	 .byte 2
+  63 002f 01       	 .byte 1
+  64 0030 00       	 .byte 0
+  65 0031 00       	 .byte 0
+  66 0032 0000     	 .space 2
+  67              	 .global PWM_1_compare_config
+  68              	 .section .rodata.PWM_1_compare_config,"a",%progbits
+  69              	 .align 2
+  72              	PWM_1_compare_config:
+  73 0000 00       	 .byte 0
+  74 0001 00       	 .byte 0
+  75 0002 00       	 .byte 0
+  76 0003 00       	 .byte 0
+  77 0004 04       	 .byte 4
+  78 0005 00       	 .byte 0
+  79 0006 0000     	 .space 2
+  80              	 .global PWM_1_gpio_out_config
+  81              	 .section .rodata.PWM_1_gpio_out_config,"a",%progbits
+  82              	 .align 2
+  85              	PWM_1_gpio_out_config:
+  86 0000 90       	 .byte -112
+  87 0001 00       	 .byte 0
+  88 0002 0000     	 .space 2
+  89 0004 00000100 	 .word 65536
+  90              	 .global PWM_1
+  91              	 .section .data.PWM_1,"aw",%progbits
+  92              	 .align 2
+  95              	PWM_1:
+  96 0000 00000000 	 .word GLOBAL_CCU4_0
+  97 0004 00000448 	 .word 1208221696
+  98 0008 00040448 	 .word 1208222720
+  99 000c 00000000 	 .word PWM_1_compare_config
+ 100 0010 00020440 	 .word 1074004480
+ 101 0014 00000000 	 .word PWM_1_gpio_out_config
+ 102 0018 409C0000 	 .word 40000
+ 103 001c 3F9C0000 	 .word 39999
+ 104 0020 00000000 	 .word 0
+ 105 0024 00500000 	 .word 20480
+ 106 0028 00       	 .byte 0
+ 107 0029 02       	 .byte 2
+ 108 002a 00       	 .byte 0
+ 109 002b 00       	 .byte 0
+ 110 002c 0B       	 .byte 11
+ 111 002d 00       	 .byte 0
+ 112 002e 03       	 .byte 3
+ 113 002f 01       	 .byte 1
+ 114 0030 00       	 .byte 0
+ 115 0031 00       	 .byte 0
+ 116 0032 0000     	 .space 2
+ 117              	 .global PWM_2_compare_config
+ 118              	 .section .rodata.PWM_2_compare_config,"a",%progbits
+ 119              	 .align 2
+ 122              	PWM_2_compare_config:
+ 123 0000 00       	 .byte 0
+ 124 0001 00       	 .byte 0
+ 125 0002 00       	 .byte 0
+ 126 0003 00       	 .byte 0
+ 127 0004 04       	 .byte 4
+ 128 0005 00       	 .byte 0
+ 129 0006 0000     	 .space 2
+ 130              	 .global PWM_2_gpio_out_config
+ 131              	 .section .rodata.PWM_2_gpio_out_config,"a",%progbits
+ 132              	 .align 2
+ 135              	PWM_2_gpio_out_config:
+ 136 0000 90       	 .byte -112
+ 137 0001 00       	 .byte 0
+ 138 0002 0000     	 .space 2
+ 139 0004 00000100 	 .word 65536
+ 140              	 .global PWM_2
+ 141              	 .section .data.PWM_2,"aw",%progbits
+ 142              	 .align 2
+ 145              	PWM_2:
+ 146 0000 00000000 	 .word GLOBAL_CCU4_0
+ 147 0004 00000448 	 .word 1208221696
+ 148 0008 00010448 	 .word 1208221952
+ 149 000c 00000000 	 .word PWM_2_compare_config
+ 150 0010 00020440 	 .word 1074004480
+ 151 0014 00000000 	 .word PWM_2_gpio_out_config
+ 152 0018 00000000 	 .word 0
+ 153 001c 3F9C0000 	 .word 39999
+ 154 0020 10270000 	 .word 10000
+ 155 0024 05000000 	 .word 5
+ 156 0028 00       	 .byte 0
+ 157 0029 02       	 .byte 2
+ 158 002a 00       	 .byte 0
+ 159 002b 00       	 .byte 0
+ 160 002c 00       	 .byte 0
+ 161 002d 00       	 .byte 0
+ 162 002e 00       	 .byte 0
+ 163 002f 01       	 .byte 1
+ 164 0030 00       	 .byte 0
+ 165 0031 00       	 .byte 0
+ 166 0032 0000     	 .space 2
+ 167              	 .text
+ 168              	.Letext0:
+ 169              	 .file 1 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 170              	 .file 2 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 171              	 .file 3 "C:/Workspaces/DAVE4/RGB_led/Libraries/CMSIS/Infineon/XMC1100_series/Include/XMC1100.h"
+ 172              	 .file 4 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc_gpio.h"
+ 173              	 .file 5 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc1_gpio.h"
+ 174              	 .file 6 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc_ccu4.h"
+ 175              	 .file 7 "C:/Workspaces/DAVE4/RGB_led/Libraries/XMCLib/inc/xmc1_scu.h"
+ 176              	 .file 8 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 177              	 .file 9 "../Dave/Generated/PWM/pwm.h"
+ 178              	 .file 10 "C:/Workspaces/DAVE4/RGB_led/Libraries/CMSIS/Infineon/XMC1100_series/Include/system_XMC1100.h"
+ 179              	 .file 11 "C:/Workspaces/DAVE4/RGB_led/Dave/Generated/GLOBAL_CCU4/global_ccu4_extern.h"
+ 180              	 .file 12 "../Dave/Generated/PWM/pwm_conf.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pwm_conf.c
+    {standard input}:22     .rodata.PWM_0_compare_config:00000000 PWM_0_compare_config
+    {standard input}:19     .rodata.PWM_0_compare_config:00000000 $d
+    {standard input}:35     .rodata.PWM_0_gpio_out_config:00000000 PWM_0_gpio_out_config
+    {standard input}:32     .rodata.PWM_0_gpio_out_config:00000000 $d
+    {standard input}:45     .data.PWM_0:00000000 PWM_0
+    {standard input}:42     .data.PWM_0:00000000 $d
+    {standard input}:72     .rodata.PWM_1_compare_config:00000000 PWM_1_compare_config
+    {standard input}:69     .rodata.PWM_1_compare_config:00000000 $d
+    {standard input}:85     .rodata.PWM_1_gpio_out_config:00000000 PWM_1_gpio_out_config
+    {standard input}:82     .rodata.PWM_1_gpio_out_config:00000000 $d
+    {standard input}:95     .data.PWM_1:00000000 PWM_1
+    {standard input}:92     .data.PWM_1:00000000 $d
+    {standard input}:122    .rodata.PWM_2_compare_config:00000000 PWM_2_compare_config
+    {standard input}:119    .rodata.PWM_2_compare_config:00000000 $d
+    {standard input}:135    .rodata.PWM_2_gpio_out_config:00000000 PWM_2_gpio_out_config
+    {standard input}:132    .rodata.PWM_2_gpio_out_config:00000000 $d
+    {standard input}:145    .data.PWM_2:00000000 PWM_2
+    {standard input}:142    .data.PWM_2:00000000 $d
+
+UNDEFINED SYMBOLS
+GLOBAL_CCU4_0
